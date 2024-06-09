@@ -1,0 +1,35 @@
+.wow{
+    width: 100%;
+    height: auto;
+    & h1{
+      text-align: center;
+      /* margin-top: 50px; */
+    }
+    & ul{
+      width: 80%;
+      margin: auto;
+      position: relative;
+      display: flex;
+      list-style: none;
+      gap: 10px;
+      & li{
+        & button{
+          background-color: rgba(66, 121, 202, 0.644);
+          padding: 10px 30px;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          border: none;
+          font-size: large;
+        }
+        .buttonn{
+          background-color: rgb(78, 110, 250);
+          font-weight: bolder;
+
+        }
+      }
+    }
+    & p{
+      width: 80%;
+      margin: auto;
+    }
+  }

@@ -1,14 +1,45 @@
+/** @format */
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import './pages/Styles/tab.css';
+import './pages/Styles/Header.css';
+import './pages/Styles/footer.css';
+import './pages/Styles/todo.css';
+import Tab from './pages/components/Tab';
+import Todo from './pages/components/Todo';
 import reportWebVitals from './reportWebVitals';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Home from './pages/components/Home';
+import Items from './pages/components/Items';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+let allrouter = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <Home/>
+    },
+    {
+      path: 'tab-secton',
+      element: <Tab/>
+    },
+    {
+      path: 'todo-app',
+      element: <Todo/>
+    },
+    {
+      path: 'all-items',
+      element: <Items/>
+    }
+  ]
+)
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+	<React.StrictMode>
+    <RouterProvider router={allrouter}/>
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
