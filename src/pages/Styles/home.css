@@ -1,0 +1,10 @@
+.bodyTag{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    & img{
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px #ccc;
+    }
+}

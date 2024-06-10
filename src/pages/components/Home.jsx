@@ -9,12 +9,8 @@ export default function Home() {
         <div>
             <Headers/>
             <div className="bodyTag">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat odit quas voluptas voluptatem fuga dolore magni voluptatum repellendus, culpa laudantium qui recusandae dicta illo, voluptatibus veritatis quidem nulla, nostrum exercitationem!</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat odit quas voluptas voluptatem fuga dolore magni voluptatum repellendus, culpa laudantium qui recusandae dicta illo, voluptatibus veritatis quidem nulla, nostrum exercitationem!</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat odit quas voluptas voluptatem fuga dolore magni voluptatum repellendus, culpa laudantium qui recusandae dicta illo, voluptatibus veritatis quidem nulla, nostrum exercitationem!</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat odit quas voluptas voluptatem fuga dolore magni voluptatum repellendus, culpa laudantium qui recusandae dicta illo, voluptatibus veritatis quidem nulla, nostrum exercitationem!</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat odit quas voluptas voluptatem fuga dolore magni voluptatum repellendus, culpa laudantium qui recusandae dicta illo, voluptatibus veritatis quidem nulla, nostrum exercitationem!</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat odit quas voluptas voluptatem fuga dolore magni voluptatum repellendus, culpa laudantium qui recusandae dicta illo, voluptatibus veritatis quidem nulla, nostrum exercitationem!</p>
+                <p>My Dream</p>
+                <img src="http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSZUFJoSbVzTq970VfMygBoqq60SwSSX3nYkaodN6gnPK_55WU-W0NXUplyA-lf772e8xkiKUuAvDWQArEZtpM" alt="" />
             </div>
             <Footer/>
 		</div>
