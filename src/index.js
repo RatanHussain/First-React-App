@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import './pages/Styles/home.css';
 import './pages/Styles/tab.css';
+import './pages/Styles/form.css';
 import './pages/Styles/Header.css';
 import './pages/Styles/footer.css';
 import './pages/Styles/todo.css';
@@ -19,6 +20,7 @@ import Home from './pages/components/Home';
 import Items from './pages/components/Items';
 import ItemDetails from './pages/components/ItemDetails';
 import Error404 from './pages/components/Error404';
+import Form from './pages/components/Form';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let allrouter = createBrowserRouter(
@@ -47,6 +49,10 @@ let allrouter = createBrowserRouter(
       path: '*',
       element: <Error404/>
     },
+    {
+      path: 'forms',
+      element: <Form/>
+    }
   ]
 )
 

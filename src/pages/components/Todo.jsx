@@ -42,7 +42,7 @@ export default function Todo() {
         <div className='App'>
             <Headers/>
 			<NotificationContainer />
-			<div className='container'>
+			<div className='containers'>
 				<h1>My Todo App</h1>
 				<form onSubmit={settodo}>
 					<input type='text' name='todoList' /> <button>Add</button>

@@ -3,8 +3,23 @@
     padding: 20px;
     margin: 0;
     text-align: center;
-
     box-shadow: 2px 5px 10px 5px #ccc;
+
+    .singUp{
+        position: absolute;
+        right: 20px;
+        & button{
+            padding: 5px 9px;
+            border: none;
+            box-shadow: 2px 3px 10px #727070 ;
+            border-radius: 8px;
+            background-color: aqua;
+            cursor: pointer;
+            .link{
+                text-decoration: none;
+            }
+        }
+    }
     .navBar{
         display: flex;
         width: 100%;
@@ -20,7 +35,6 @@
             font-weight: bolder;
             .link{
                 text-decoration: none;
-
             }
         }
     }
