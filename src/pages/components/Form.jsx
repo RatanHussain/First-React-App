@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Headers from '../../common/Headers';
 import Footer from '../../common/Footer';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export default function Form() {
 	let [value, setValue] = useState({
@@ -19,28 +20,57 @@ export default function Form() {
 		let inputValue = e.target.value;
 		oldData[inputName] = inputValue;
 		setValue(oldData);
-	};
+		};
 
-	let [formData, setFormData] = useState([]);
+		let [formData, setFormData] = useState([]);
 
-	let formSubmit = (e) => {
+		let editRow = (indexNumber) => {
+		let editingRow = formData.filter((value, inde) => inde === indexNumber)[0];
+		editingRow['index'] = indexNumber;
+		setValue(editingRow);
+		};
+
+		let formSubmit = (e) => {
 		e.preventDefault();
 		let newUser = {
 			uname: value.uname,
 			uemail: value.uemail,
 			uphone: value.uphone,
 			upassword: value.upassword,
-			index: value.index,
 		};
 
-		let checkduplicate = formData.filter(
-			(v) => v.uemail == value.uemail || v.uphone == value.uphone
-		);
+		if (value.index === '') {
+			let checkduplicate = formData.filter(
+				(v) => v.uemail == value.uemail || v.uphone == value.uphone
+				);
 
-		if (checkduplicate.length == 1) {
-			alert("checkduplicate");
+				if (checkduplicate.length == 1) {
+				NotificationManager.error('Email or phone already exist...!')
+			} else {
+				let userData = [...formData, newUser];
+
+				setFormData(userData);
+				setValue({
+					uname: '',
+					uemail: '',
+					uphone: '',
+					upassword: '',
+					index: '',
+				});
+			}
 		} else {
-			let userData = [...formData, newUser];
+			let oldData = value.index;
+			let userData = formData;
+
+			let checkduplicate = formData.filter(
+				(v,i) => (v.uemail == value.uemail || v.uphone == value.uphone) && i !== oldData
+			);
+
+			if (checkduplicate == 0) {
+				userData[oldData]['uname'] = value.uname;
+			userData[oldData]['uemail'] = value.uemail;
+			userData[oldData]['uphone'] = value.uphone;
+			userData[oldData]['upassword'] = value.upassword;
 
 			setFormData(userData);
 			setValue({
@@ -50,12 +80,25 @@ export default function Form() {
 				upassword: '',
 				index: '',
 			});
+			} else {
+				NotificationManager.error('Email or phone already exist...!')
+			}
+
+
 		}
+	};
+
+	let deleteRow = (i) => {
+		let afterDel = formData.filter((v, index) => i !== index);
+
+		setFormData(afterDel);
 	};
 
 	return (
 		<div>
 			<Headers />
+
+			<NotificationContainer/>
 
 			<div className='division'>
 				<div className='container'>
@@ -69,7 +112,6 @@ export default function Form() {
 								onChange={changedData}
 								name='uname'
 								id='uname'
-								required
 							/>
 						</div>
 						<div className='form-input'>
@@ -80,7 +122,6 @@ export default function Form() {
 								onChange={changedData}
 								name='uemail'
 								id='uemail'
-								required
 							/>
 						</div>
 						<div className='form-input'>
@@ -91,7 +132,6 @@ export default function Form() {
 								onChange={changedData}
 								name='uphone'
 								id='uphone'
-								required
 							/>
 						</div>
 						<div className='form-input'>
@@ -102,11 +142,10 @@ export default function Form() {
 								onChange={changedData}
 								name='upassword'
 								id='upassword'
-								required
 							/>
 						</div>
 
-						<button>{value.index != '' ? 'Save' : 'Update'}</button>
+						<button>{value.index !== '' ? 'Update' : 'Save'}</button>
 					</form>
 				</div>
 
@@ -131,8 +170,8 @@ export default function Form() {
 										<td>{v.uphone}</td>
 										<td>{v.upassword}</td>
 										<td>
-											<button>Delete</button>
-											<button>Edit</button>
+											<button onClick={() => deleteRow(i)}>Delete</button>
+											<button onClick={() => editRow(i)}>Edit</button>
 										</td>
 									</tr>
 								);
