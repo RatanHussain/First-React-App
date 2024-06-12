@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import './pages/Styles/home.css';
 import './pages/Styles/tab.css';
-import './pages/Styles/form.css';
 import './pages/Styles/Header.css';
 import './pages/Styles/footer.css';
 import './pages/Styles/todo.css';
@@ -14,6 +13,8 @@ import './pages/Styles/itemDetails.css';
 import './pages/Styles/error404.css';
 import Tab from './pages/components/Tab';
 import Todo from './pages/components/Todo';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './pages/components/Home';
