@@ -22,6 +22,7 @@ import Items from './pages/components/Items';
 import ItemDetails from './pages/components/ItemDetails';
 import Error404 from './pages/components/Error404';
 import Form from './pages/components/Form';
+import GeneratePassword from './pages/components/GeneratePassword';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let allrouter = createBrowserRouter(
@@ -53,7 +54,11 @@ let allrouter = createBrowserRouter(
     {
       path: 'forms',
       element: <Form/>
-    }
+    },
+    {
+      path: 'generate-password',
+      element: <GeneratePassword/>
+    },
   ]
 )
 
